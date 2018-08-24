@@ -1,0 +1,85 @@
+﻿@inherits UmbracoTemplatePage
+@{
+	Layout = null;
+}
+
+<!doctype html>
+<html>
+	<head>
+		<title>@Umbraco.Field("pageName")</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="~/css/socialiconstyle.css" />
+		<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="~/css/carousel.css" />
+		<link rel="stylesheet" href="~/css/magnific-popup-lightbox.css" />
+		<link rel="stylesheet" href="~/css/umasterclass.css" />
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/scripts/magnific-popup-lightbox.js"></script>
+		<script type="text/javascript" src="/scripts/website.js"></script>
+		
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/5.13.0/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+	    <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/5.13.0/css/themes/default.min.css" type="text/css" media="screen"  charset="utf-8" />
+	</head>
+	<body>
+		<!-- Nav -->
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<a href="/" class="navbar-brand">
+					<img alt="Umbraco" src="/images/umbracoblack.png">
+				</a>
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					
+					<!-- Navbar -->
+					@{ var selection = CurrentPage.Site().Children.Where("Visible"); }
+
+					<ul class="nav navbar-nav">
+						@foreach (var item in selection)
+						{
+							<li class="@(item.IsAncestorOrSelf(CurrentPage) ? "current" : null)">
+								<a href="@item.Url">@item.Name</a>
+							</li>
+						}
+					</ul>
+						
+					<!-- End Navbar -->
+							
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Guest<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<!-- If logged on -->
+								<li><a href="/logout"><i class="glyphicon glyphicon-off"></i> Log Out</a></li>
+								<!-- else -->
+								<li><a href="/login"><i class="glyphicon glyphicon-lock"></i> Log In</a></li>
+								<li><a href="/register"><i class="glyphicon glyphicon-pencil"></i> Register</a></li>
+							</ul>
+						</li>
+						<li>
+							<form class="navbar-form navbar-right" role="search" action="/search">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control span2" placeholder="Search">
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div> 
+		</nav>
+		<!-- End Nav -->
+		
+		<!-- Child template begins -->
+		@RenderBody()
+		<!-- Child template ends -->
+        
+        <script src="//cdn.jsdelivr.net/medium-editor/5.13.0/js/medium-editor.min.js"></script>
+        <script>var editor = new MediumEditor('textarea.editable');</script>
+
+	</body>
+</html>

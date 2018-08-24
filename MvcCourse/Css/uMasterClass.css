@@ -1,0 +1,360 @@
+/*
+============Custom Styling============
+*/
+
+/* NAVBAR ---------------------------------------------------*/
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	z-index: 1;}
+
+.navbar-brand > img {
+	max-height: 330%;
+}
+
+.navbar-nav > li > a {
+	top: 1px;
+}
+
+.navbar-right {
+     margin-right: -5px;
+}
+
+@media screen and (max-width: 400px){
+
+	.navbar-fixed-top .navbar-collapse {
+     max-height: 500px;
+	}
+	.navbar-right {
+     margin-right: -15px;
+	}
+	.navbar-collapse {
+	 overflow-x: hidden;
+	}
+}
+
+/* CAROUSEL ------------------------------------------------*/
+.carousel {
+	height: 550px;
+	margin-bottom: 35px;
+}
+
+.carousel-inner {
+	height: 100%;
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+	width: 100%;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {
+    font-size: 2.5em;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-next {
+    font-size: 2.5em;
+}
+
+.carousel-caption {
+	top: 160px;
+    text-shadow: 2px 2px 10px rgba(0,0,0, 0.5);
+}
+
+.carousel-images {
+	position: fixed;
+	right: 0;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 0;
+	background-size: cover;
+}
+
+.carousel-inner h2 {
+	font-size: 60px;
+}
+
+
+
+/* HomePage Body Content and Media Queries -------------------- */
+
+.services li {
+	padding: 3px 0px;
+}
+
+.col-lg-4 ul {
+	list-style-type: none;
+	position: relative;
+	left: -20px;
+}
+
+@media screen and (max-width: 48em){
+    .col-sm-4 ul {
+        list-style-type: none;
+		text-align: center;
+		position: relative;
+		left: -25px;
+    }
+}
+
+.col-sm-4 h3 {
+	color: inherit;
+}
+
+@media screen and (max-width: 48em){
+	.col-sm-4 h3 {
+		color: #222222;
+		margin: 15px 60px;
+	}
+}
+
+.col-sm-4 p {
+	margin: inherit;
+}
+
+@media screen and (max-width: 48em){
+	.col-sm-4 p {
+		margin: 15px 60px;
+	}
+}
+
+.btn-center {
+	text-align: left;
+}
+
+@media screen and (max-width: 48em){
+	.btn-center {
+		text-align: center;
+	}
+}
+
+.content-blocks {
+	height: 20px;
+	background-color: #f0f0f0;
+}
+
+.block-odd {
+	float: left;
+	width: 48%;
+}
+
+.block-even {
+	float: right;
+	width: 48%;
+}
+
+.about-blocks {
+	height: 140px;
+	margin: 0 0 20px 0;
+	background-size: cover;
+	padding: 0 0;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.marketing h1 {
+	margin-bottom: 45px;
+	text-align: center;
+}
+
+
+.bottom-body {
+	margin: 15px 0 0 0;
+}
+
+.bottom-body h1 {
+	text-align: center;
+}
+
+.col-sm-4 h3 {
+	text-align: center;
+}
+
+.col-sm-4 p {
+	display: block;
+	text-align: center;
+	font-size: 50px;
+	margin: 20px 0;
+}
+
+.news-items ul li p {
+	display: block;
+	text-align: left;
+	font-size: 11px;
+	margin: 5px 0;
+}
+
+/* 
+---------------------------------------------------- */
+
+.social-area {
+	padding: 0px;
+	width: 100%;
+	margin: 60px auto 0px;
+	padding: 0px 0px;
+	background-color: #353535;
+	border-top: solid 1px #000000;
+	border-bottom: solid 1px #000000;
+}
+
+@media screen and (max-width: 48em){
+	.container-fluid {
+		height: 260;
+	}
+}
+
+.base-footer {
+	margin: 0px 0px;
+}
+
+.pre-footer {
+	padding: 15px 0px;
+}
+
+.footer-info {
+	background-color: #222222;
+	padding: 20px 190px 20px 155px;
+}
+
+@media screen and (max-width: 700px){
+	.footer-info {
+		background-color: #222222;
+		padding: 20px 25px 20px 25px;
+	}
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* TESTING --------------------------------------------------------*/
+
+.col-md-12 {
+	margin-bottom: 25px;
+}
+
+.col-md-9 {
+	margin: 25px 0 25px 0;
+}
+
+.col-md-3 {
+	margin: 25px 0 25px 0;
+}
+
+@media screen and (max-width: 775px){
+	.col-md-9 {
+		margin: 30px 0 50px 0;
+	}
+}
+
+.column img {
+	max-width: 100%;
+	border-radius: 5px;
+	margin: 20px 0;
+}
+
+.grid-section .container {
+	max-width: 100%
+}
+
+.sidebar {
+	margin-top: 55px;
+}
+
+footer {
+	margin: 0;
+}
+
+/* Landing page ---------------------------------------------------- */
+
+.landingpage {
+	margin-top: -20px;
+}
+
+.landingpage div[style*="background-image"] {
+	background-position: center center;
+	background-size: cover;
+}
+
+.landingpage div[style*="background-image"] h1,
+.landingpage div[style*="background-image"] p {
+    text-shadow: 2px 2px 10px rgba(0,0,0, 0.5);
+}
+
+.landingpage .grid-section > div:first-child {
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+
+.landingpage p {
+	margin: 0 auto 10px;
+	max-width: 600px;
+}
+.landingpage .grid-section > div {
+	padding:30px;
+}
+
+.Red,
+.Blue,
+.Yellow,
+.Grey,
+.White,
+.Black {
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: multiply;
+	color: white;
+	padding:30px;
+}
+
+.Red {
+	background-color: #CC0033;
+}
+
+.Blue {
+	background-color: #2A5485;
+}
+
+.Yellow {
+	background-color: #FECC09;
+}
+
+.Grey {
+	background-color: #4B5B6E;
+}
+.White {
+	background-color: #ffffff;
+	/* muliply with white/black is not useful, hence luminosity :) */
+	background-blend-mode: luminosity;
+	color: #000000;
+}
+.Black {
+	background-color: #000000;
+	/* muliply with black/white is not useful, hence luminosity :) */
+	background-blend-mode: luminosity;
+	color: #ffffff;
+}
+.None {
+	padding:30px;
+}
+
+@media (max-width:991px) {
+	.column > .Red,
+	.column > .Blue,
+	.column > .Yellow,
+	.column > .Grey,
+	.column > .White,
+	.column > .Black, 
+	.column > .None {
+		margin-bottom: 30px;
+	}
+}

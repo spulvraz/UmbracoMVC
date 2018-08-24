@@ -1,0 +1,23 @@
+﻿@using MvcCourse.Models
+@inherits UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="page-header">
+                <h1>@Umbraco.Field("pageName")</h1>
+            </div>
+            
+            @Umbraco.Field("bodyText")
+
+
+            @Html.Partial("/Views/Partials/brokenform.cshtml", new BrokenFormModel())
+
+        </div>
+    </div>
+</div>    
+    
+    

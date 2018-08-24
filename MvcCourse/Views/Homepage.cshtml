@@ -1,0 +1,142 @@
+﻿@*@inherits UmbracoTemplatePage*@
+
+@inherits UmbracoTemplatePage<Homepage>
+@{
+	Layout = "Master.cshtml";
+
+  var profiler = UmbracoContext.Application.ProfilingLogger;
+  using (profiler.DebugDuration<UmbracoTemplatePage>("Measuring Parsing algorithm. My profiler message:"))
+  {
+    System.Threading.Thread.Sleep(1000);
+  }
+}
+
+<!-- promo slider html -->
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+		<div class="item active" style="background-image:url('/images/HQ_9975.jpg');">
+			<div class="carousel-caption">
+				<h2>Slide 1</h2>
+				<h3>A captivating subheading will go here ...</h3>
+				<p>Description</p>
+				<p><a class="btn btn-info" href="#" role="button">Read More</a></p>
+			</div>
+		</div>
+		<div class="item" style="background-image:url('/images/HQ_9826.jpg');">
+			<div class="carousel-caption">
+				<h2>Slide 2</h2>
+				<h3>A captivating subheading will go here ...</h3>
+				<p>Description</p>
+				<p><a class="btn btn-info" href="#" role="button">Read More</a></p>
+			</div>
+		</div>
+	</div>
+
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+		<span class="icon-prev"></span>
+	</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">
+		<span class="icon-next"></span>
+	</a>
+</div>
+<!-- end promo slider html -->
+
+		
+ <div class="container marketing">
+	<div class="row">
+	  <h1>Awesomeness for everyone!</h1>
+    
+    @if (Model.Content.HomeTitle != null)
+    {
+      <h4 style="color:aqua"> @Model.Content.HomeTitle </h4>
+    }
+    else
+    {
+      <h4 style="color:blueviolet"> no content for the homeTitle field property </h4>
+    }
+
+	    <div class="col-md-6">
+	        
+	        @Umbraco.Field("bodyText")
+
+			<p><a class="btn btn-info" href="#" role="button">Read More &raquo;</a></p>
+	    </div>
+
+		<div class="col-md-6">
+			<div class="col-sm-6 block-odd about-blocks" style="background-image:url('/images/HQ_0413.jpg');"></div>
+			<div class="col-sm-6 block-even about-blocks" style="background-image:url('/images/HQ_9953.jpg');"></div>
+			<div class="col-sm-6 block-odd about-blocks" style="background-image:url('/images/HQ_9986.jpg');"></div>
+			<div class="col-sm-6 block-even about-blocks" style="background-image:url('/images/HQ_9921.jpg');"></div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row bottom-body">
+		<h1>What can we help you find?</h1>
+		<div class="col-sm-4">
+			<p class="glyphicon glyphicon-globe text-center"></p>
+			<h3>Knowledge</h3>
+			<ul>
+				<li><a href="#">The most creative ideas</a></li>
+				<li><a href="#">Precise and impartial approach</a></li>
+				<li><a href="#">Providing best solutions</a></li>
+				<li><a href="#">Individual customer support</a></li>
+				<li><a href="#">Fresh ideas for growing your business</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-4 news-items">
+			<p class="glyphicon glyphicon-list-alt text-center"></p>
+			<h3>Latest News</h3>
+			<ul>
+				<li><a href="#">Our Big News Headline 1</a><br />6/8/2015</li>
+				<li><a href="#">Our Big News Headline 2</a><br />6/8/2015</li>
+				<li><a href="#">Our Big News Headline 3</a><br />6/8/2015</li>
+				<li><a href="#">Our Big News Headline 4</a><br />6/8/2015</li>
+			</ul>
+		</div>
+		<div class="col-sm-4">
+			<p class="glyphicon glyphicon-screenshot text-center"></p>
+			<h3>Locations</h3>
+			<ul>
+				<li><a href="#">Odense, Denmark</a></li>
+				<li><a href="#">Bellingham, Washington</a></li>
+				<li><a href="#">Sydney, Austrailia</a></li>
+				<li><a href="#">New York City, New York</a></li>
+				<li><a href="#">Paris, France</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- Footer Area -->
+<div class="container social-area">
+	<div class="row pre-footer">
+		<div class="col-md-6 text-center">
+			<h4>Social Media</h4>
+			<div class="icons">
+				<a href="#" class="facebook"></a>
+				<a href="#" class="twitter"></a>
+				<a href="#" class="linkedin"></a>
+				<a href="#" class="github"></a>
+				<a href="" class="rss"></a>
+			</div>
+		</div>
+		<div class="col-md-6 text-center">
+			<h4>Contact us</h4>
+			<p>Umbraco HQ
+				Haubergsvej 1<br />
+				DK-5000 Odense C<br />
+				+45 70 26 11 62
+			</p>
+		</div>
+	</div>
+
+	<div class="row base-footer">
+		<div class="footer-info">
+			<p class="pull-right"><a href="#">Back to top</a></p>
+			<p>&#169; @(DateTime.Today.Year) Company, Inc. <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+		</div>
+	</div>
+</div>
+<!-- End Footer Area -->

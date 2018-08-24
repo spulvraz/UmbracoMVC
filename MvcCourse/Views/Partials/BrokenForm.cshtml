@@ -1,0 +1,10 @@
+﻿@using MvcCourse.Controllers
+@model MvcCourse.Models.BrokenFormModel
+
+@using (Html.BeginUmbracoForm<BrokenController>("Submit"))
+{
+    <label>Enter a number</label>
+    @Html.TextBoxFor(model => model.ANumber)
+    
+    <input type="submit" value="Send me a number"/>
+}

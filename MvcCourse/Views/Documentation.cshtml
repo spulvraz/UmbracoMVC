@@ -1,0 +1,122 @@
+﻿@*@inherits UmbracoTemplatePage<Documentation>*@
+
+@*@ex. 7 refactoring using custom viewModel and Controller*@
+@inherits UmbracoTemplatePage<MvcCourse.Models.DocumentationViewModel>
+@{
+    Layout = "Master.cshtml";
+
+    ////ex. 7 this will be calculated in the controller Documentation Index meth.
+
+    //////get images in the Media folder assigned for the uploaded images
+    //var images = Model.Content.Images.OfType<Folder>()
+    //                .SelectMany(x => x.Children().OfType<Image>());
+
+    //the below code is made redundant with model + custom controller
+    //Model.Content.LandingPages is populated with the related nodes fetched from content cache
+    ////get the related landing pages
+    //var ids = UmbracoContext
+    //                .Application.Services
+    //                .RelationService.GetByParentId(Model.Content.Id)
+    //                .Select(x => x.ChildId);
+
+    ////fetch them as nodes
+    //var products = Umbraco.TypedContent(ids)
+    //                       .Where(x => x.DocumentTypeAlias == "landingPage").ToList();
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+          <div class="page-header">
+            @*<a class="btn btn-default pull-right" href="@Model.Content.Url/edit">Edit</a>*@
+            @*EDIT BUTTON to load the partial view to update the documentations*@
+            <a class="btn btn-default pull-right" href="@Model.Content.Url?altTemplate=Edit">Edit Documentation content</a>
+            <h1>@Umbraco.Field("pageName")</h1>
+          </div>
+
+          @Umbraco.Field("bodyText")
+          
+          @*render the relation to a product if the product name is contained in the content of the page*@
+          @*@if (products.Any())
+          {
+              <hr />
+              <h4>Documentation Applies to Products - relations:</h4>
+              <ul>
+                  @foreach (var landingPage in products)
+                  {
+                      <li><a href="@landingPage.Url">@landingPage.Name</a></li>
+                  }
+              </ul>
+          }*@
+
+          @*ex. 7 refactoring using viewmodel instead with the property 'LandingPages'*@
+          @if (Model.Content.LandingPages.Any())
+          {
+              <hr />
+              <h4>Documentation Applies to Products - relations:</h4>
+              <ul>
+                  @foreach (var landingPage in Model.Content.LandingPages)
+                  {
+                      <li><a href="@landingPage.Url">@landingPage.Name</a></li>
+                  }
+              </ul>
+          }
+          else
+          {
+            <h4 style="color:coral">The documentation doesn't contain relation to any product :/</h4>
+          }
+
+          @*render images if contained in the folder*@
+          @*@if (images.Any())
+          {
+              <h4>Documentation media - images:</h4>
+              foreach (var image in images)
+              {
+                  <img src="@Url.GetCropUrl(image, "thumb")" alt="..." class="img-thumbnail">
+              }
+          }*@
+
+          @* ex 7 - *@
+          @if (Model.Content.AllImages.Any())
+          {
+              <h4>Documentation media - images:</h4>
+              foreach (var image in Model.Content.AllImages)
+              {
+                  <img src="@Url.GetCropUrl(image, "thumb")" alt="..." class="img-thumbnail">
+              }
+          }
+          else
+          {
+            <h4 style="color:red">The documentation doesn't contain images :/</h4>
+          }
+        </div>
+        <div class="col-md-3">
+
+            <ul class="nav nav-list">
+                @foreach (var item in CurrentPage.Children)
+                {
+                    <li>
+                        <a href="@item.Url">@item.Name</a>
+                    </li>
+                }
+            </ul>
+
+            <dl class="nav nav-list" id="doc-history-list"></dl>
+
+            <button id="doc-history" class="btn btn-default"
+                    data-doc-id="@CurrentPage.Id">
+                Load revision history
+            </button>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <footer>
+                Updated by @Umbraco.Field("writerName") on @Umbraco.Field("updateDate", formatAsDate: true)
+            </footer>
+        </div>
+    </div>
+</div>
+

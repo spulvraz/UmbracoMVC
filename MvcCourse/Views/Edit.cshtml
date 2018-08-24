@@ -1,0 +1,23 @@
+﻿@*@inherits Umbraco.Web.Mvc.UmbracoTemplatePage*@
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<Documentation>
+
+@{
+	Layout = "Master.cshtml";
+}
+
+@* We land here when the user clcks the button 'EDIT...' *@
+@* this page will be displayed and the an Action is called to the server: the action Render will render a partial view fro the form *@
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="page-header">
+          <h1> Edit (page content) me: @Umbraco.Field("pageName") </h1>
+          @*<h1> Edit me: @Model.Content.Name page content</h1>*@
+        </div>
+        @* call to the server to render a partial view indeicated in the controller*@
+        @Html.Action("Render", "DocumentationForm", new { model = Model.Content })
+      </div>
+    </div>
+</div>
